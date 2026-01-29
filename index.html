@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+    <div class="bg-blob"></div>
+
+    <div class="login-card">
+        <h1>Welcome back</h1>
+        <p class="subtitle">Please enter your details to sign in.</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="name@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-login">Sign in</button>
+        </form>
+
+        <div class="footer">
+            <p>Don't have an account? <a href="#">Create one</a></p>
+        </div>
+
+        <div class="social-login">
+            <div id="googleBtn"></div>
+            <button class="social-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="success-card" id="successCard" style="display: none;">
+        <div class="user-avatar-container">
+            <img src="" alt="User Avatar" id="userAvatar" class="user-avatar">
+        </div>
+        <h1 id="welcomeTitle">Welcome!</h1>
+        <div class="email-badge">
+            <span class="label">Gmail Account</span>
+            <p id="userEmail"></p>
+        </div>
+        <div class="success-content">
+            <div id="weatherWidget" class="weather-widget" style="display: none;">
+                <div class="weather-info">
+                    <img id="weatherIcon" src="" alt="Weather Icon" class="weather-icon">
+                    <div class="weather-text">
+                        <span id="weatherTemp" class="weather-temp">--°C</span>
+                        <span id="weatherDesc" class="weather-desc">Loading weather...</span>
+                    </div>
+                </div>
+                <div id="weatherLocation" class="weather-location">Detecting location...</div>
+            </div>
+
+            <p id="successMsg">You have successfully signed in.</p>
+
+            <div id="gmailContainer" style="display: none;">
+                <div class="header-with-btn">
+                    <h3 class="section-title">Recent Messages</h3>
+                    <button id="loadEmailsBtn" class="btn-small">Load Emails</button>
+                </div>
+                <div id="gmailList" class="gmail-list">
+                    <div class="loading-spinner">Authorize to view emails</div>
+                </div>
+            </div>
+
+            <button class="btn-login" onclick="location.reload()">Sign out</button>
+        </div>
+    </div>
+
+    <!-- Email Detail Modal -->
+    <div id="emailModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modalSubject">Subject</h2>
+                <button id="closeModal" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-info">
+                <p><strong>From:</strong> <span id="modalFrom"></span></p>
+            </div>
+            <div id="modalBody" class="modal-body">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

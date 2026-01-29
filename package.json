@@ -1,0 +1,11 @@
+{
+    "name": "premium-login",
+    "version": "1.0.0",
+    "description": "A premium login page",
+    "main": "index.html",
+    "scripts": {
+        "dev": "npx serve ."
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}
