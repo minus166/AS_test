@@ -285,3 +285,4 @@ function decodeJwt(token) {
 
     return JSON.parse(jsonPayload);
 }
+// Auto-push enabled
