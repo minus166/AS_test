@@ -229,7 +229,25 @@ input:focus {
   text-align: center;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
 }
+
+.success-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.success-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.success-card::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+}
+
 
 .user-avatar-container {
   width: 100px;
@@ -471,61 +489,69 @@ input:focus {
   background: var(--glass-border);
   border-radius: 10px;
 }
+
 /* Weather Widget */
 .weather-widget {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    backdrop-filter: blur(10px);
-    animation: fadeIn 0.8s ease-out;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease-out;
 }
 
 .weather-info {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .weather-icon {
-    width: 64px;
-    height: 64px;
-    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
 }
 
 .weather-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .weather-temp {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .weather-desc {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    text-transform: capitalize;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
 }
 
 .weather-location {
-    font-size: 0.9rem;
-    color: var(--primary-light);
-    font-weight: 500;
-    letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  color: var(--primary-light);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
