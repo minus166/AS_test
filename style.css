@@ -138,7 +138,7 @@ input {
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 14px 16px;
-  color: #white;
+  color: white;
   outline: none;
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -554,4 +554,150 @@ input:focus {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Todo List Styles */
+.todo-container {
+  margin-top: 24px;
+  text-align: left;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 24px;
+}
+
+.todo-input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.todo-input-group input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.todo-input-group input:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  animation: slideInTodo 0.3s ease-out;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.todo-checkbox.checked {
+  background: var(--primary);
+}
+
+.todo-checkbox.checked::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.todo-text {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  transition: all 0.3s;
+}
+
+.todo-item.completed .todo-text {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete:hover {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@keyframes slideInTodo {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar for Todo List */
+.todo-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
 }
